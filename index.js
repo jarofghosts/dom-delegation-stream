@@ -1,5 +1,5 @@
-var delegate = require('dom-delegate')
-  , map = require('weakmap-shim')()
+var delegate = require('delegate-dom')
+  , direct = require('dom-event')
   , through = require('through')
 
 module.exports = delegateStream
@@ -7,19 +7,13 @@ module.exports = delegateStream
 function delegateStream(el, type, selector, _options) {
   var options = _options || {}
   var stream = through()
-  var delegator = map.get(el)
-
-  if(!delegator) {
-    delegator = delegate(el)
-    map.set(el, delegator)
-  }
 
   if(!selector || typeof selector !== 'string') {
     options = selector || {}
 
-    delegator.on(type, handler, options.useCapture)
+    direct(el, type, handler, options.useCapture)
   } else {
-    delegator.on(type, selector, handler, options.useCapture)
+    delegate.on(el, selector, type, handler, options.useCapture)
   }
 
   return stream

@@ -26,6 +26,13 @@ events(document.body, 'input', 'input[type=text]')
   - `useCapture : boolean`: if specified, will initiate capture for matched
   events.
 
+## notes
+
+* there are some alternative options for event handling on npm, a couple that
+  even support delegation, and even some that are streaming. this module was
+  created as an effort to provide a better balance of simplicity and
+  flexibility.
+
 ## license
 
 MIT

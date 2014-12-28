@@ -1,5 +1,5 @@
 {
-  "name": "dom-delegate-stream",
+  "name": "dom-delegation-stream",
   "version": "0.0.0",
   "description": "streaming DOM event delegation",
   "main": "index.js",
@@ -30,8 +30,8 @@
     "tape": "^3.0.3"
   },
   "dependencies": {
-    "dom-delegate": "^2.0.3",
-    "through": "^2.3.6",
-    "weakmap-shim": "^1.1.0"
+    "delegate-dom": "0.0.1",
+    "dom-event": "0.0.4",
+    "through": "^2.3.6"
   }
 }
