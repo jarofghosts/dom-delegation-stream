@@ -15,7 +15,7 @@ events(document.body, 'input', 'input[type=text]')
 
 ## api
 
-### events(element, eventName[, selector, options]) -> ReadableStream
+#### events(element, eventName[, selector, options]) -> ReadableStream
 
 * if selector is provided, delegation will be used.
 * valid options are:
@@ -24,7 +24,7 @@ events(document.body, 'input', 'input[type=text]')
   - `stopPropagation : boolean`: will call `stopPropagation()` on all matched
   events. Defaults to `false`.
   - `useCapture : boolean`: if specified, will initiate capture for matched
-  events.
+  events. Defaults to `false`.
 
 ## notes
 
