@@ -31,6 +31,8 @@ events(document.body, 'input', 'input[type=text]')
 
 ## notes
 
+* calling `.end()` or otherwise ending the stream returned by
+  `dom-delegation-stream` will remove the listeners added for event handling.
 * there are some alternative options for event handling on npm, a couple that
   even support delegation, and even some that are streaming. this module was
   created as an effort to provide a better balance of simplicity and
