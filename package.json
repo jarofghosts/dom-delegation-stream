@@ -24,14 +24,12 @@
   "homepage": "https://github.com/jarofghosts/dom-delegate-stream",
   "devDependencies": {
     "browserify": "^8.0.2",
-    "dom-sandbox": "0.0.0",
     "faucet": "0.0.1",
     "jsdom-eval": "0.0.7",
     "tape": "^3.0.3"
   },
   "dependencies": {
-    "delegate-dom": "0.0.1",
-    "dom-event": "0.0.4",
+    "dom-delegate": "^2.0.3",
     "through": "^2.3.6"
   }
 }

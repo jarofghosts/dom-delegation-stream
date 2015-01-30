@@ -1,19 +1,19 @@
-var delegate = require('delegate-dom')
-  , direct = require('dom-event')
+var delegate = require('dom-delegate')
   , through = require('through')
 
 module.exports = delegateStream
 
 function delegateStream(el, type, selector, _options) {
   var options = _options || {}
-  var stream = through()
+  var stream = through(null, end)
+  var delegator = delegate(el)
 
   if(!selector || typeof selector !== 'string') {
     options = selector || {}
 
-    direct(el, type, handler, options.useCapture)
+    delegator.on(type, handler, options.useCapture)
   } else {
-    delegate.on(el, selector, type, handler, options.useCapture)
+    delegator.on(type, selector, handler, options.useCapture)
   }
 
   return stream
@@ -23,5 +23,9 @@ function delegateStream(el, type, selector, _options) {
     if(options.stopPropagation) ev.stopPropagation()
 
     stream.queue(ev)
+  }
+
+  function end() {
+    delegator.off()
   }
 }
