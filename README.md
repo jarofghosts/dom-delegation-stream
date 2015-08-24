@@ -1,7 +1,9 @@
 # dom-delegation-stream
 
-[![Build Status](http://img.shields.io/travis/jarofghosts/dom-delegation-stream/master.svg?style=flat)](https://travis-ci.org/jarofghosts/dom-delegation-stream)
-[![npm install](http://img.shields.io/npm/dm/dom-delegation-stream.svg?style=flat)](https://www.npmjs.org/package/dom-delegation-stream)
+[![Build Status](https://img.shields.io/travis/jarofghosts/dom-delegation-stream.svg?style=flat-square)](https://travis-ci.org/jarofghosts/dom-delegation-stream)
+[![npm install](https://img.shields.io/npm/dm/dom-delegation-stream.svg?style=flat-square)](https://www.npmjs.org/package/dom-delegation-stream)
+[![npm version](https://img.shields.io/npm/v/dom-delegation-stream.svg?style=flat-square)](https://www.npmjs.org/package/dom-delegation-stream)
+[![License](https://img.shields.io/npm/l/dom-delegation-stream.svg?style=flat-square)](https://github.com/jarofghosts/dom-delegation-stream/blob/master/LICENSE)
 
 simple streaming DOM event delegation
 
@@ -9,14 +11,14 @@ simple streaming DOM event delegation
 
 ```javascript
 var events = require('dom-delegation-stream')
-  , values = require('dom-value-stream')
+var values = require('dom-value-stream')
 
 events(document.body, 'input', 'input[type=text]')
   .pipe(values())
   .pipe(wherever())
 ```
 
-## api
+## API
 
 #### events(element, eventName[, selector, options]) -> ReadableStream
 
@@ -31,6 +33,8 @@ events(document.body, 'input', 'input[type=text]')
 
 ## notes
 
+* when using delegation, the element that matches your selector will be
+  available as `event.delegationTarget`.
 * calling `.end()` or otherwise ending the stream returned by
   `dom-delegation-stream` will remove the listeners added for event handling.
 * there are some alternative options for event handling on npm, a couple that
