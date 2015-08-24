@@ -1,6 +1,6 @@
 {
   "name": "dom-delegation-stream",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "streaming DOM event delegation",
   "main": "index.js",
   "scripts": {
