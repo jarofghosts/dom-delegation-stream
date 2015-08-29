@@ -34,5 +34,6 @@ function delegateStream (el, type, selector, _options) {
 
   function end () {
     delegator.off()
+    stream.queue(null)
   }
 }

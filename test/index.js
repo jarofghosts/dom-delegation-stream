@@ -116,7 +116,7 @@ test('provides delegationTarget', function (t) {
 })
 
 test('`.end()` removes listeners', function (t) {
-  t.plan(1)
+  t.plan(2)
 
   var el = document.createElement('div')
   var target = document.createElement('input')
@@ -136,6 +136,10 @@ test('`.end()` removes listeners', function (t) {
   delegateStream.once('data', function () {
     t.ok(true, 'should be triggered')
     t.end()
+  })
+
+  directStream.on('end', function () {
+    t.pass('end event is emitted')
   })
 
   directStream.end()
